@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BioLácteos Sin Gluten del Huila</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-dark:  #1a5c2a;
+      --green-mid:   #2e8b4a;
+      --green-light: #4caf72;
+      --green-pale:  #e8f5ec;
+      --amber:       #f4a61f;
+      --amber-light: #fff4d6;
+      --white:       #ffffff;
+      --gray-50:     #f9fafb;
+      --gray-100:    #f3f4f6;
+      --gray-200:    #e5e7eb;
+      --gray-600:    #4b5563;
+      --gray-800:    #1f2937;
+      --radius:      12px;
+      --shadow:      0 4px 24px rgba(0,0,0,.10);
+      --shadow-lg:   0 12px 40px rgba(0,0,0,.15);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: var(--gray-800);
+      line-height: 1.65;
+      background: var(--white);
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 80px 0; }
+    .section-alt { background: var(--gray-50); }
+    .section-green { background: var(--green-dark); color: #fff; }
+    .tag {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 99px;
+      margin-bottom: 12px;
+    }
+    .tag-green  { background: var(--green-pale); color: var(--green-dark); }
+    .tag-amber  { background: var(--amber-light); color: #92530a; }
+    .tag-white  { background: rgba(255,255,255,.18); color: #fff; }
+    h1 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.15; }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; }
+    h3 { font-size: 1.25rem; font-weight: 700; }
+    .lead { font-size: 1.15rem; color: var(--gray-600); max-width: 640px; }
+    .center { text-align: center; }
+    .center .lead { margin: 0 auto; }
+    .mt-2  { margin-top: .5rem; }
+    .mt-4  { margin-top: 1rem; }
+    .mt-6  { margin-top: 1.5rem; }
+    .mt-8  { margin-top: 2rem; }
+    .mt-12 { margin-top: 3rem; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    @media (max-width: 900px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .grid-4 { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 580px) {
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: 1fr; }
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+    .logo-text { font-size: 1.1rem; font-weight: 800; color: var(--green-dark); }
+    .logo-sub  { font-size: .72rem; color: var(--gray-600); font-weight: 500; }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--green-mid); }
+    .btn-nav {
+      background: var(--green-mid);
+      color: #fff !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 700 !important;
+      font-size: .88rem !important;
+      transition: background .2s !important;
+    }
+    .btn-nav:hover { background: var(--green-dark) !important; }
+    .nav-mobile-btn { display: none; cursor: pointer; font-size: 1.5rem; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-mobile-btn { display: block; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #0f3d1d 60%, #1a5c2a 100%);
+      color: #fff;
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234caf72' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    }
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 768px) { .hero-inner { grid-template-columns: 1fr; } }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      padding: 6px 16px;
+      border-radius: 99px;
+      font-size: .85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero h1 { color: #fff; margin-bottom: 20px; }
+    .hero .lead { color: rgba(255,255,255,.82); max-width: 540px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+      border: 2px solid transparent;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .btn-primary { background: var(--amber); color: #1f2937; }
+    .btn-outline { border-color: rgba(255,255,255,.5); color: #fff; }
+    .btn-outline:hover { background: rgba(255,255,255,.1); }
+    .btn-green { background: var(--green-mid); color: #fff; }
+    .btn-green:hover { background: var(--green-dark); }
+
+    /* Hero visual */
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hero-card {
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.2);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .hero-card-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--green-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .hero-card h4 { color: #fff; font-size: .95rem; }
+    .hero-card p  { color: rgba(255,255,255,.7); font-size: .82rem; }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar {
+      background: var(--amber);
+      padding: 18px 0;
+    }
+    .trust-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: .92rem;
+      color: #1f2937;
+    }
+    .trust-item span { font-size: 1.3rem; }
+
+    /* ===== ABOUT ===== */
+    .about-block {
+      background: var(--green-pale);
+      border-radius: 16px;
+      padding: 36px;
+      border-left: 5px solid var(--green-mid);
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    @media (max-width: 580px) { .about-stats { grid-template-columns: 1fr; } }
+    .stat-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .stat-num { font-size: 2.2rem; font-weight: 800; color: var(--green-dark); }
+    .stat-label { font-size: .85rem; color: var(--gray-600); margin-top: 4px; }
+
+    /* ===== PRODUCTS ===== */
+    .product-card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+      border: 1px solid var(--gray-200);
+    }
+    .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .product-img {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+    .cat-a { background: linear-gradient(135deg, #fdf0d5, #fde7b0); }
+    .cat-b { background: linear-gradient(135deg, #d5edf9, #b0d9f5); }
+    .cat-c { background: linear-gradient(135deg, #ddf5e3, #b5e8c2); }
+    .product-body { padding: 20px; }
+    .product-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 99px;
+      font-size: .72rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .badge-a { background: #fff4d6; color: #92530a; }
+    .badge-b { background: #dbeafe; color: #1e40af; }
+    .badge-c { background: #dcfce7; color: #166534; }
+    .product-body h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .product-body p  { font-size: .87rem; color: var(--gray-600); }
+    .product-footer {
+      padding: 14px 20px;
+      border-top: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sin-gluten-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      background: var(--green-pale);
+      padding: 5px 10px;
+      border-radius: 8px;
+    }
+
+    /* ===== CATALOG TABLE ===== */
+    .table-wrapper { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
+    table { width: 100%; border-collapse: collapse; background: #fff; min-width: 700px; }
+    thead { background: var(--green-dark); color: #fff; }
+    thead th { padding: 14px 16px; text-align: left; font-size: .85rem; font-weight: 700; }
+    tbody tr { border-bottom: 1px solid var(--gray-200); }
+    tbody tr:hover { background: var(--green-pale); }
+    tbody td { padding: 13px 16px; font-size: .88rem; vertical-align: top; }
+    .td-apto   { color: #166534; font-weight: 700; }
+    .td-dudoso { color: #92400e; font-weight: 700; }
+    .td-source { font-size: .75rem; color: var(--gray-600); }
+
+    /* ===== GLUTEN INFO ===== */
+    .info-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+    .info-card.alert-card {
+      border: 2px solid var(--amber);
+      background: var(--amber-light);
+    }
+    .info-card.safe-card {
+      border: 2px solid var(--green-light);
+      background: var(--green-pale);
+    }
+    .info-icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .checklist { list-style: none; margin-top: 14px; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 6px 0;
+      font-size: .9rem;
+    }
+    .checklist li::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .check-green li::before { background: var(--green-mid); content: '✓'; color: #fff; text-align: center; line-height: 20px; font-size: .7rem; font-weight: 900; }
+    .check-red   li::before { background: #ef4444; content: '✗'; color: #fff; text-align: center; line-height: 20px; font-size: .7rem; font-weight: 900; }
+    .check-amber li::before { background: var(--amber); content: '!'; color: #1f2937; text-align: center; line-height: 20px; font-size: .75rem; font-weight: 900; }
+
+    /* Espiga barrada SVG badge */
+    .espiga-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green-pale);
+      border: 2px solid var(--green-mid);
+      border-radius: var(--radius);
+      padding: 12px 20px;
+      font-weight: 700;
+      color: var(--green-dark);
+      font-size: 1rem;
+    }
+    .espiga-svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    /* ===== NORMATIVE ===== */
+    .norm-table tbody td:first-child { font-weight: 700; color: var(--green-dark); }
+    .norm-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .norm-card h4 { color: #fff; margin-bottom: 8px; }
+    .norm-card p  { color: rgba(255,255,255,.75); font-size: .88rem; }
+
+    /* ===== ADDITIVES ===== */
+    .additive-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+    @media (max-width: 640px) { .additive-grid { grid-template-columns: 1fr; } }
+    .additive-card {
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .additive-safe   { background: var(--green-pale); border: 2px solid var(--green-light); }
+    .additive-danger { background: #fef2f2; border: 2px solid #fca5a5; }
+    .additive-card h4 { margin-bottom: 12px; font-size: 1rem; }
+    .e-code {
+      display: inline-block;
+      background: var(--white);
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: .78rem;
+      font-weight: 700;
+      margin: 3px 2px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.1);
+    }
+
+    /* ===== SUSTAINABILITY ===== */
+    .sustain-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .flow-step {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 20px 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      width: 180px;
+      flex-shrink: 0;
+    }
+    .flow-step .icon { font-size: 2.2rem; margin-bottom: 8px; }
+    .flow-step h4   { font-size: .9rem; color: var(--green-dark); }
+    .flow-arrow {
+      font-size: 1.6rem;
+      color: var(--green-light);
+      padding: 0 8px;
+    }
+    @media (max-width: 640px) {
+      .sustain-flow { flex-direction: column; }
+      .flow-arrow { transform: rotate(90deg); }
+    }
+    .wpc-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
+    @media (max-width: 640px) { .wpc-cards { grid-template-columns: 1fr; } }
+    .wpc-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .wpc-card .num { font-size: 2rem; font-weight: 800; color: var(--green-mid); }
+    .wpc-card p    { font-size: .83rem; color: var(--gray-600); margin-top: 4px; }
+
+    /* ===== DIFFERENCE SECTION ===== */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    @media (max-width: 640px) { .diff-grid { grid-template-columns: 1fr; } }
+    .diff-card {
+      border-radius: 16px;
+      padding: 32px;
+      position: relative;
+    }
+    .diff-celiac   { background: var(--green-pale); border: 2px solid var(--green-mid); }
+    .diff-lactose  { background: #fffbeb; border: 2px solid var(--amber); }
+    .diff-card .big-icon { font-size: 3rem; margin-bottom: 16px; }
+    .diff-card h3  { margin-bottom: 12px; }
+
+    /* ===== REQUIREMENTS SECTION ===== */
+    .req-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--green-mid);
+    }
+    .req-card.req-alert { border-top-color: var(--amber); background: var(--amber-light); }
+    .req-card h3 { margin-bottom: 14px; }
+    .req-card ul { padding-left: 20px; }
+    .req-card li { margin: 6px 0; font-size: .9rem; }
+
+    /* ===== CONTACT ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-form {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: .88rem; font-weight: 600; margin-bottom: 6px; color: var(--gray-800); }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 2px solid var(--gray-200);
+      border-radius: 8px;
+      font-size: .92rem;
+      transition: border-color .2s;
+      font-family: inherit;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--green-mid);
+    }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 20px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .contact-item-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--green-pale);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .contact-item h4 { font-size: .9rem; margin-bottom: 2px; }
+    .contact-item p  { font-size: .85rem; color: var(--gray-600); }
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #25d366;
+      color: #fff;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
+      justify-content: center;
+      margin-top: 8px;
+      transition: background .2s, transform .15s;
+    }
+    .whatsapp-btn:hover { background: #128c4e; transform: translateY(-2px); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--gray-800);
+      color: rgba(255,255,255,.75);
+      padding: 60px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-brand .logo-text { color: #fff; }
+    .footer-brand p { font-size: .88rem; margin-top: 12px; color: rgba(255,255,255,.6); }
+    .footer-col h4 { color: #fff; font-size: .9rem; margin-bottom: 14px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col li a { font-size: .85rem; color: rgba(255,255,255,.6); transition: color .2s; }
+    .footer-col li a:hover { color: var(--green-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: .82rem;
+      color: rgba(255,255,255,.45);
+    }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== REQUIRED LABEL SECTION ===== */
+    .label-box {
+      background: linear-gradient(135deg, var(--green-dark), #0f3d1d);
+      border-radius: 20px;
+      padding: 48px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .label-box::before {
+      content: '⚠';
+      position: absolute;
+      right: 32px;
+      top: 20px;
+      font-size: 8rem;
+      opacity: .06;
+    }
+    .label-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    @media (max-width: 640px) { .label-list { grid-template-columns: 1fr; } }
+    .label-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,.1);
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: .9rem;
+    }
+    .label-item-icon { font-size: 1.5rem; }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#inicio" class="logo">
+        <div class="logo-icon">🌿</div>
+        <div>
+          <div class="logo-text">BioLácteos</div>
+          <div class="logo-sub">Sin Gluten del Huila</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#etiquetado">Etiquetado</a></li>
+        <li><a href="#normativa">Normativa</a></li>
+        <li><a href="#sostenibilidad">Sostenibilidad</a></li>
+        <li><a href="#contacto" class="btn-nav">Contáctanos</a></li>
+      </ul>
+      <div class="nav-mobile-btn">☰</div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-kicker">
+          <span>🌾</span> Certificados Sin Gluten · Huila, Colombia
+        </div>
+        <h1>Lácteos con propósito,<br>seguros para celíacos</h1>
+        <p class="lead">
+          BioLácteos Sin Gluten del Huila transforma la tradición láctea regional en productos
+          innovadores, certificados y libres de gluten, pensados para quienes viven con celiaquía
+          sin renunciar al sabor ni a la nutrición.
+        </p>
+        <div class="hero-btns">
+          <a href="#productos" class="btn btn-primary">Ver catálogo de productos</a>
+          <a href="#etiquetado" class="btn btn-outline">Guía Sin Gluten</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-icon">🏆</div>
+          <div>
+            <h4>Certificación INVIMA</h4>
+            <p>Registro sanitario bajo Decreto 3075/97 y Ley 9/79</p>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">🔬</div>
+          <div>
+            <h4>Biotecnología Aplicada</h4>
+            <p>Formulaciones precisas con frutos secos y cultivos probióticos</p>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">♻️</div>
+          <div>
+            <h4>Biorrefinería Circular</h4>
+            <p>Valorización del lactosuero — 55% de nutrientes recuperados</p>
+          </div>
+        </div>
+        <div class="espiga-badge" style="margin-top:4px;">
+          <svg class="espiga-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" stroke="#2e8b4a" stroke-width="4"/>
+            <line x1="50" y1="85" x2="50" y2="20" stroke="#2e8b4a" stroke-width="4" stroke-linecap="round"/>
+            <ellipse cx="50" cy="42" rx="12" ry="8" fill="#2e8b4a" transform="rotate(-30 50 42)"/>
+            <ellipse cx="50" cy="42" rx="12" ry="8" fill="#2e8b4a" transform="rotate(30 50 42)"/>
+            <ellipse cx="50" cy="58" rx="10" ry="7" fill="#2e8b4a" transform="rotate(-30 50 58)"/>
+            <ellipse cx="50" cy="58" rx="10" ry="7" fill="#2e8b4a" transform="rotate(30 50 58)"/>
+            <line x1="20" y1="80" x2="80" y2="20" stroke="#e74c3c" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          Espiga Barrada Certificada en todos nuestros productos
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-item"><span>✅</span> 100% Sin Gluten certificado</div>
+      <div class="trust-item"><span>🥛</span> Biotecnología láctea</div>
+      <div class="trust-item"><span>🌿</span> Producción sostenible</div>
+      <div class="trust-item"><span>🏅</span> Aval INVIMA</div>
+      <div class="trust-item"><span>📍</span> Huila, Colombia</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NOSOTROS ===== -->
+<section class="section" id="nosotros">
+  <div class="container">
+    <div class="grid-2">
+      <div class="fade-in">
+        <span class="tag tag-green">Nuestra Identidad</span>
+        <h2>Innovación con propósito desde el Huila</h2>
+        <p class="lead mt-4">
+          BioLácteos está estratégicamente posicionado para disrumpir la industria láctea del
+          departamento del Huila, transformando un modelo tradicional en una operación
+          agroindustrial de alta rentabilidad enfocada en el mercado <em>gluten-free</em>.
+        </p>
+        <p class="mt-4" style="color:var(--gray-600); font-size:.95rem;">
+          Nuestra misión se fundamenta en <strong>"innovación con propósito"</strong>: garantizar
+          la seguridad alimentaria y el deleite sensorial de los consumidores celíacos e
+          intolerantes a la lactosa. Empleamos biotecnología aplicada para integrar materias
+          primas seguras como frutos secos, optimizando la palatabilidad mediante formulaciones precisas.
+        </p>
+        <p class="mt-4" style="color:var(--gray-600); font-size:.95rem;">
+          Esta identidad de marca se sustenta en una <strong>arquitectura de transparencia total</strong>,
+          donde la rigurosidad legal colombiana es el cimiento de nuestra promesa de valor al
+          consumidor moderno.
+        </p>
+        <div class="about-block mt-8">
+          <strong style="color:var(--green-dark);">💡 Ventaja competitiva única</strong>
+          <p class="mt-2" style="font-size:.9rem;">
+            Mientras el proceso convencional genera 9 a 10 litros de lactosuero por kg de queso producido
+            —un pasivo ambiental—, BioLácteos captura ese volumen para convertirlo en activos nutricionales,
+            redefiniéndo el estándar de competitividad para el Huila en el panorama nacional.
+          </p>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-num">55%</div>
+            <div class="stat-label">de nutrientes de la leche recuperados del lactosuero</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">9–10L</div>
+            <div class="stat-label">de lactosuero valorizado por kg de queso producido</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">100×</div>
+            <div class="stat-label">mayor carga orgánica del lactosuero vs. aguas residuales</div>
+          </div>
+        </div>
+        <div style="background:var(--green-pale);border-radius:16px;padding:28px;margin-top:28px;">
+          <h3 style="color:var(--green-dark); margin-bottom:12px;">Nuestra Misión</h3>
+          <p style="font-size:.9rem;color:var(--gray-600);">
+            Garantizar la seguridad alimentaria y el deleite sensorial de los consumidores celíacos
+            e intolerantes a la lactosa, mediante productos lácteos innovadores con certificación
+            Sin Gluten, producidos con los más altos estándares de inocuidad y biotecnología aplicada.
+          </p>
+          <h3 style="color:var(--green-dark); margin-bottom:12px; margin-top:18px;">Nuestra Visión</h3>
+          <p style="font-size:.9rem;color:var(--gray-600);">
+            Ser el referente nacional de la transformación digital agroindustrial láctea libre de gluten,
+            demostrando que la tradición del Huila puede liderar el futuro de la alimentación
+            inteligente y sostenible en Colombia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTOS ===== -->
+<section class="section section-alt" id="productos">
+  <div class="container">
+    <div class="center fade-in">
+      <span class="tag tag-green">Portafolio</span>
+      <h2>Nuestros Productos Certificados</h2>
+      <p class="lead mt-4">
+        Tres categorías de excelencia, cada una con la <strong>Espiga Barrada</strong> como
+        marcador visual de confianza no negociable. Precio premium justificado por la
+        especialización biotecnológica y la biorrefinería circular.
+      </p>
+    </div>
+
+    <div class="grid-3 mt-12 fade-in">
+      <!-- Cat A -->
+      <div class="product-card">
+        <div class="product-img cat-a">🧀</div>
+        <div class="product-body">
+          <span class="product-badge badge-a">Categoría A · Lácteos Tradicionales Optimizados</span>
+          <h3>Queso Campesino Especializado "BioLácteos Huila"</h3>
+          <p>
+            Queso fresco de pasta hilada, elaborado bajo control estricto de humedad y
+            clarificación de proteínas solubles. Producción de alta precisión utilizando
+            tinas de cuajado y prensas de acero inoxidable.
+          </p>
+          <ul class="checklist check-green mt-4">
+            <li>100% natural, sin aditivos artificiales</li>
+            <li>Recuperación selectiva de calcio y proteínas lácteas</li>
+            <li>Alta biodisponibilidad de nutrientes</li>
+            <li>Control estricto de contaminación cruzada</li>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <div class="sin-gluten-badge">
+            <span>🌾</span> Sin Gluten Certificado
+          </div>
+          <span style="font-size:.78rem;color:var(--gray-600);">Registro Sanitario INVIMA</span>
+        </div>
+      </div>
+
+      <!-- Cat B -->
+      <div class="product-card">
+        <div class="product-img cat-b">🥤</div>
+        <div class="product-body">
+          <span class="product-badge badge-b">Categoría B · Bebidas Vegetales (Dairy-Free)</span>
+          <h3>Bebida de Cacahuete, Semillas de Melón y Coco</h3>
+          <p>
+            Formulación innovadora que neutraliza el sabor leguminoso y potencia la cremosidad
+            sin aditivos artificiales. Alternativa sofisticada que supera las bebidas vegetales convencionales.
+          </p>
+          <ul class="checklist check-green mt-4">
+            <li>Superioridad proteica frente a la leche de almendra</li>
+            <li>Perfil lipídico cardiosaludable</li>
+            <li>Sin espesantes de origen incierto</li>
+            <li>Apta para veganos y celíacos</li>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <div class="sin-gluten-badge">
+            <span>🌾</span> Sin Gluten Certificado
+          </div>
+          <span style="font-size:.78rem;color:var(--gray-600);">Notificación Sanitaria INVIMA</span>
+        </div>
+      </div>
+
+      <!-- Cat C -->
+      <div class="product-card">
+        <div class="product-img cat-c">🫙</div>
+        <div class="product-body">
+          <span class="product-badge badge-c">Categoría C · Derivados Funcionales (Yogur-like)</span>
+          <h3>Fermentado Probiótico de Almendra y Frutos Amarillos</h3>
+          <p>
+            Base de almendra enriquecida con nutrientes para bacterias benéficas. Análogos
+            fermentados diseñados con cultivos probióticos específicos para la salud intestinal.
+            Libre de espesantes derivados de cereales prohibidos.
+          </p>
+          <ul class="checklist check-green mt-4">
+            <li>Fortalece el microbioma gástrico</li>
+            <li>Optimiza la digestibilidad</li>
+            <li>Cultivos probióticos específicos</li>
+            <li>Sin TACC certificado</li>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <div class="sin-gluten-badge">
+            <span>🌾</span> Sin Gluten Certificado
+          </div>
+          <span style="font-size:.78rem;color:var(--gray-600);">Registro Sanitario INVIMA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Catalog table -->
+    <div class="mt-12 fade-in">
+      <h3 class="mb-4" style="margin-bottom:20px;">Catálogo Completo de Productos Lácteos</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Categoría</th>
+              <th>Presentación</th>
+              <th>Ingredientes clave</th>
+              <th>Estado Gluten</th>
+              <th>Fuente</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Leche Fluida</strong></td>
+              <td>Lácteo natural</td>
+              <td>Sachet / Bolsa (1 litro)</td>
+              <td>Leche de vaca fresca</td>
+              <td class="td-apto">✅ Apto — libre de gluten por naturaleza</td>
+              <td class="td-source">Ref. 1</td>
+            </tr>
+            <tr>
+              <td><strong>Bebidas a base de Suero Lácteo</strong></td>
+              <td>Lácteo con valor agregado</td>
+              <td>Botella PET / Tetrapack</td>
+              <td>Lactosuero, saborizantes naturales, sin trazas de gluten</td>
+              <td class="td-apto">✅ Apto — procesado como Sin TACC</td>
+              <td class="td-source">Ref. 1, 2</td>
+            </tr>
+            <tr>
+              <td><strong>Mantequilla</strong></td>
+              <td>Grasas lácteas</td>
+              <td>Papel / pote (barras o bloques)</td>
+              <td>Crema de leche</td>
+              <td class="td-apto">✅ Apto — primeras marcas generalmente</td>
+              <td class="td-source">Ref. 1, 3</td>
+            </tr>
+            <tr>
+              <td><strong>Yogurt Autorizado</strong></td>
+              <td>Lácteo fermentado</td>
+              <td>Vaso plástico / botella individual o familiar</td>
+              <td>Leche, cultivos lácticos, sin espesantes con TACC</td>
+              <td class="td-dudoso">⚠ Dudoso — solo apto si figura en listados oficiales</td>
+              <td class="td-source">Ref. 1</td>
+            </tr>
+            <tr>
+              <td><strong>Queso (Variedades Autorizadas)</strong></td>
+              <td>Quesos</td>
+              <td>Envasado al vacío / plástico</td>
+              <td>Leche, cuajo, sal (sin aditivos sospechosos)</td>
+              <td class="td-dudoso">⚠ Dudoso — revisar ausencia de almidones modificados de trigo</td>
+              <td class="td-source">Ref. 1, 3, 4</td>
+            </tr>
+            <tr>
+              <td><strong>Helado de Leche Autorizado</strong></td>
+              <td>Postres congelados</td>
+              <td>Pote plástico o térmico</td>
+              <td>Leche, crema, azúcar, estabilizantes aptos</td>
+              <td class="td-dudoso">⚠ Dudoso — requiere certificación Sin TACC</td>
+              <td class="td-source">Ref. 1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:12px; font-size:.78rem; color:var(--gray-600); padding: 0 4px;">
+        <strong>Referencias:</strong>
+        [1] Manual de Manipulación de Alimentos para Celíacos — Ministerio de Turismo Nación / ASSAL ·
+        [2] Innovación y sostenibilidad en torno al suero lácteo — Repositorio Uniminuto ·
+        [3] Negocios de productos lácteos con valor agregado ·
+        [4] Aditivos alimentarios y gluten — Disfrutando sin Gluten
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ETIQUETADO OBLIGATORIO ===== -->
+<section class="section section-green" id="etiquetado">
+  <div class="container">
+    <div class="center fade-in">
+      <span class="tag tag-white">Etiquetado Obligatorio</span>
+      <h2 style="color:#fff;">Derivados que REQUIEREN sello "Sin Gluten"</h2>
+      <p style="color:rgba(255,255,255,.8); max-width:620px; margin:16px auto 0;">
+        Cualquier derivado lácteo que incluya sabores, aderezos o procesos de ultra-procesamiento
+        <strong style="color:#fff;">debe llevar obligatoriamente</strong> el sello certificado "Sin Gluten".
+      </p>
+    </div>
+
+    <div class="label-box mt-12 fade-in">
+      <h3 style="color:#fff; font-size:1.3rem; margin-bottom:8px;">
+        ⚠ Productos que requieren certificación obligatoria
+      </h3>
+      <p style="color:rgba(255,255,255,.8); font-size:.92rem;">
+        Estos derivados lácteos deben presentar la Espiga Barrada u otro sello acreditado de
+        ausencia de gluten antes de ser comercializados:
+      </p>
+      <div class="label-list">
+        <div class="label-item">
+          <span class="label-item-icon">🧀</span>
+          <div>
+            <strong>Quesos untables saborizados o fundidos</strong>
+            <div style="font-size:.8rem;opacity:.8;margin-top:2px;">
+              Pueden contener almidones modificados de trigo como texturizantes
+            </div>
+          </div>
+        </div>
+        <div class="label-item">
+          <span class="label-item-icon">🍮</span>
+          <div>
+            <strong>Postres lácteos</strong>
+            <div style="font-size:.8rem;opacity:.8;margin-top:2px;">
+              Flanes, natillas, arroz con leche, etc. — ingredientes de riesgo en espesantes
+            </div>
+          </div>
+        </div>
+        <div class="label-item">
+          <span class="label-item-icon">🍦</span>
+          <div>
+            <strong>Helados con ingredientes añadidos</strong>
+            <div style="font-size:.8rem;opacity:.8;margin-top:2px;">
+              Trozos de galleta, brownie, masa de cookie u otros con gluten
+            </div>
+          </div>
+        </div>
+        <div class="label-item">
+          <span class="label-item-icon">🥣</span>
+          <div>
+            <strong>Yogures con trozos de galleta o cereales</strong>
+            <div style="font-size:.8rem;opacity:.8;margin-top:2px;">
+              La galleta o cereal puede contener trigo, cebada o centeno
+            </div>
+          </div>
+        </div>
+        <div class="label-item">
+          <span class="label-item-icon">🥤</span>
+          <div>
+            <strong>Bebidas lácteas saborizadas</strong>
+            <div style="font-size:.8rem;opacity:.8;margin-top:2px;">
+              Los saborizantes industriales pueden incluir trazas de gluten
+            </div>
+          </div>
+        </div>
+        <div class="label-item">
+          <span class="label-item-icon">🫙</span>
+          <div>
+            <strong>Quesos procesados con rellenos</strong>
+            <div style="font-size:.8rem;opacity:.8;margin-top:2px;">
+              Jamón, especias industriales, almidones modificados de origen incierto
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Norma -->
+    <div class="grid-4 mt-12 fade-in">
+      <div class="norm-card">
+        <h4>🔖 Espiga Barrada</h4>
+        <p>Símbolo Internacional de Gluten reconocido globalmente que garantiza la ausencia de gluten.</p>
+      </div>
+      <div class="norm-card">
+        <h4>📋 Reglamento UE 1169/2011</h4>
+        <p>Estándar europeo de etiquetado de alérgenos aplicado como referencia de excelencia.</p>
+      </div>
+      <div class="norm-card">
+        <h4>🏥 INVIMA Colombia</h4>
+        <p>Validación nacional bajo Decreto 3075/97 para alimentos de mayor riesgo en salud pública.</p>
+      </div>
+      <div class="norm-card">
+        <h4>✅ Sin TACC</h4>
+        <p>Libre de Trigo, Avena, Cebada y Centeno — estándar de certificación en América Latina.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CELIAQUÍA vs INTOLERANCIA ===== -->
+<section class="section" id="diferencia">
+  <div class="container">
+    <div class="center fade-in">
+      <span class="tag tag-amber">Información Importante</span>
+      <h2>Celiaquía ≠ Intolerancia a la Lactosa</h2>
+      <p class="lead mt-4">
+        Son dos condiciones muy distintas que requieren soluciones diferentes.
+        Conocer la diferencia es fundamental para elegir el producto correcto.
+      </p>
+    </div>
+
+    <div class="diff-grid fade-in">
+      <div class="diff-card diff-celiac">
+        <div class="big-icon">🧬</div>
+        <h3 style="color:var(--green-dark);">Celiaquía (Intolerancia al Gluten)</h3>
+        <p style="color:var(--gray-600); font-size:.9rem; margin-bottom:16px;">
+          Enfermedad autoinmune crónica donde el gluten (proteína del trigo, cebada, centeno, avena)
+          daña el intestino delgado.
+        </p>
+        <ul class="checklist check-green">
+          <li>Buscar el sello <strong>Sin Gluten / Espiga Barrada</strong></li>
+          <li>La mayoría de <strong>lácteos naturales son aptos</strong></li>
+          <li>Evitar derivados con espesantes, saborizantes o galletas</li>
+          <li>Verificar almidones modificados en la etiqueta</li>
+          <li>Consultar listados oficiales de productos autorizados</li>
+        </ul>
+        <div style="margin-top:16px; padding:14px; background:var(--white); border-radius:10px; font-size:.85rem; color:var(--green-dark); font-weight:600;">
+          ✅ La leche fluida, quesos naturales y yogures simples son naturalmente aptos para celíacos
+        </div>
+      </div>
+
+      <div class="diff-card diff-lactose">
+        <div class="big-icon">🥛</div>
+        <h3 style="color:#92530a;">Intolerancia a la Lactosa</h3>
+        <p style="color:var(--gray-600); font-size:.9rem; margin-bottom:16px;">
+          Incapacidad del organismo para digerir la lactosa (azúcar de la leche) por déficit de
+          la enzima lactasa. <strong>No es una enfermedad autoinmune.</strong>
+        </p>
+        <ul class="checklist check-amber">
+          <li>Buscar etiqueta <strong>"Sin Lactosa"</strong> o <strong>"Deslactosado"</strong></li>
+          <li>No confundir con celiaquía — son condiciones distintas</li>
+          <li>Algunos quesos curados tienen baja lactosa de forma natural</li>
+          <li>Los yogures con cultivos vivos pueden ser mejor tolerados</li>
+          <li>Consultar con nutricionista el nivel de tolerancia personal</li>
+        </ul>
+        <div style="margin-top:16px; padding:14px; background:var(--white); border-radius:10px; font-size:.85rem; color:#92530a; font-weight:600;">
+          ⚠ Si eres celíaco Y también intolerante a la lactosa, necesitas productos que sean simultáneamente "Sin Gluten" Y "Sin Lactosa"
+        </div>
+      </div>
+    </div>
+
+    <!-- ¿Puedo tener ambas? -->
+    <div class="info-card alert-card mt-8 fade-in">
+      <div class="info-icon">❗</div>
+      <h3 style="margin-bottom:10px;">¿Puedo tener ambas condiciones simultáneamente?</h3>
+      <p style="font-size:.93rem; color:var(--gray-700);">
+        Sí. Un porcentaje de personas con celiaquía también desarrolla intolerancia a la lactosa,
+        especialmente durante los períodos de mayor inflamación intestinal. En estos casos es necesario
+        buscar opciones etiquetadas explícitamente como <strong>"Sin Gluten"</strong> Y
+        <strong>"Sin Lactosa"</strong>. En BioLácteos disponemos de alternativas como nuestras
+        <strong>bebidas vegetales y fermentados de almendra</strong>, que satisfacen ambas necesidades.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NORMATIVA ===== -->
+<section class="section section-green" id="normativa">
+  <div class="container">
+    <div class="center fade-in">
+      <span class="tag tag-white">Marco Normativo</span>
+      <h2 style="color:#fff;">Garantía de Calidad y Cumplimiento INVIMA</h2>
+      <p style="color:rgba(255,255,255,.8);max-width:600px;margin:16px auto 0;">
+        La certificación sanitaria no es un trámite administrativo, sino un activo intangible de
+        confianza. Para el consumidor celíaco, el cumplimiento validado por el INVIMA actúa como el
+        principal reductor de riesgo percibido.
+      </p>
+    </div>
+
+    <div class="table-wrapper mt-12 fade-in">
+      <table class="norm-table">
+        <thead>
+          <tr>
+            <th>Tipo de Autorización</th>
+            <th>Clasificación de Riesgo</th>
+            <th>Requisito Clave</th>
+            <th>Productos BioLácteos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Registro Sanitario</td>
+            <td><strong style="color:#dc2626;">Riesgo Alto</strong></td>
+            <td>Registro Sanitario vigente. Alimentos de Mayor Riesgo en Salud Pública.</td>
+            <td>Quesos, fermentados probióticos</td>
+          </tr>
+          <tr>
+            <td>Permiso Sanitario</td>
+            <td><strong style="color:#d97706;">Riesgo Medio</strong></td>
+            <td>Permiso Sanitario según composición y vida útil.</td>
+            <td>Bebidas vegetales con procesamiento mínimo</td>
+          </tr>
+          <tr>
+            <td>Notificación Sanitaria</td>
+            <td><strong style="color:#16a34a;">Riesgo Bajo</strong></td>
+            <td>Notificación ante INVIMA. Gestión mediante Oficina Virtual.</td>
+            <td>Derivados funcionales, complementos lácteos</td>
+          </tr>
+          <tr>
+            <td>BPM (Buenas Prácticas)</td>
+            <td><strong style="color:#2e8b4a;">Estándar Base</strong></td>
+            <td>Implementación estricta con segregación de alérgenos y auditoría de proveedores.</td>
+            <td>Toda la línea de producción</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-4 mt-12 fade-in">
+      <div class="norm-card">
+        <h4>📜 Decreto 3075 / 1997</h4>
+        <p>Base de la regulación colombiana de BPM para establecimientos que producen, procesan y envasan alimentos.</p>
+      </div>
+      <div class="norm-card">
+        <h4>⚖ Ley 9 / 1979</h4>
+        <p>Código Sanitario Nacional. Marco general de sanidad pública y protección al consumidor alimentario.</p>
+      </div>
+      <div class="norm-card">
+        <h4>🌐 Reglamento UE 1169/2011</h4>
+        <p>Referencia internacional de excelencia para etiquetado de alérgenos, incluyendo gluten.</p>
+      </div>
+      <div class="norm-card">
+        <h4>🔍 Trazabilidad Total</h4>
+        <p>Segregación de alérgenos en planta, auditoría de proveedores y declaración honesta en catálogo digital.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ADITIVOS ===== -->
+<section class="section" id="aditivos">
+  <div class="container">
+    <div class="grid-2 fade-in">
+      <div>
+        <span class="tag tag-green">Transparencia de Ingredientes</span>
+        <h2>Decodificación de Aditivos y Gluten</h2>
+        <p class="lead mt-4">
+          BioLácteos elimina la fricción de compra mediante la educación proactiva. Al decodificar
+          los códigos "E", transformamos la incertidumbre del etiquetado en una validación de seguridad.
+        </p>
+        <p class="mt-4" style="color:var(--gray-600); font-size:.93rem;">
+          Bajo el estándar del <strong>Reglamento (UE) Nº 1169/2011</strong>, aplicamos un filtro
+          riguroso en la selección de aditivos. <strong>BioLácteos prohíbe el uso de almidones de
+          origen incierto</strong>. Solo utilizamos espesantes derivados de maíz, papa o tapioca,
+          con certificación de origen para cada almidón modificado utilizado.
+        </p>
+        <div class="additive-grid">
+          <div class="additive-card additive-safe">
+            <h4 style="color:var(--green-dark);">✅ Aditivos Seguros</h4>
+            <div style="font-size:.82rem;color:var(--gray-600);margin-bottom:10px;">Rangos E-100 a E-399</div>
+            <div>
+              <div style="font-size:.82rem;font-weight:600;margin-bottom:4px;">Colorantes Naturales</div>
+              <span class="e-code" style="color:var(--green-dark);">E-100 Curcumina</span>
+              <span class="e-code" style="color:var(--green-dark);">E-140 Clorofila</span>
+            </div>
+            <div style="margin-top:10px;">
+              <div style="font-size:.82rem;font-weight:600;margin-bottom:4px;">Conservantes</div>
+              <span class="e-code" style="color:var(--green-dark);">E-202 Ácido Sórbico</span>
+              <span class="e-code" style="color:var(--green-dark);">E-260 Ácido Acético</span>
+            </div>
+            <div style="margin-top:10px;">
+              <div style="font-size:.82rem;font-weight:600;margin-bottom:4px;">Antioxidantes</div>
+              <span class="e-code" style="color:var(--green-dark);">Vitamina C (E-300)</span>
+            </div>
+          </div>
+          <div class="additive-card additive-danger">
+            <h4 style="color:#991b1b;">🔍 Bajo Lupa</h4>
+            <div style="font-size:.82rem;color:var(--gray-600);margin-bottom:10px;">Almidones Modificados E-1404 a E-1451</div>
+            <div style="font-size:.83rem;color:#7f1d1d;">
+              BioLácteos <strong>prohíbe</strong> almidones de origen incierto. Solo usamos:
+            </div>
+            <ul style="margin-top:8px;padding-left:16px;font-size:.82rem;color:#7f1d1d;">
+              <li style="margin:4px 0;">Almidón de <strong>maíz</strong> certificado</li>
+              <li style="margin:4px 0;">Almidón de <strong>papa</strong> certificado</li>
+              <li style="margin:4px 0;">Almidón de <strong>tapioca</strong> certificado</li>
+            </ul>
+            <div style="margin-top:10px;font-size:.78rem;color:#991b1b;font-weight:600;">
+              ⚠ Evitar: almidones de trigo, centeno o cebada
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="info-card safe-card" style="margin-bottom:20px;">
+          <div class="info-icon">🔬</div>
+          <h3 style="margin-bottom:12px; color:var(--green-dark);">Guía rápida: ¿Es seguro este aditivo?</h3>
+          <ul class="checklist check-green">
+            <li><strong>E-100 a E-199</strong> — Colorantes. Mayormente seguros; verificar origen natural.</li>
+            <li><strong>E-200 a E-299</strong> — Conservantes. Los de ácidos orgánicos son seguros.</li>
+            <li><strong>E-300 a E-399</strong> — Antioxidantes y acidulantes. Generalmente seguros.</li>
+            <li><strong>E-400 a E-499</strong> — Espesantes. Revisar si son de guar, xantana o carragenano.</li>
+            <li><strong>E-1404 a E-1451</strong> — Almidones modificados. <em>Verificar origen siempre.</em></li>
+          </ul>
+        </div>
+
+        <div class="req-card" style="margin-bottom:20px;">
+          <h3 style="margin-bottom:12px;">Aditivos que siempre debes evitar</h3>
+          <ul class="checklist check-red">
+            <li>Almidón de trigo o fécula de trigo</li>
+            <li>Maltodextrina de trigo (puede tener trazas)</li>
+            <li>Hidrolizados de proteína de trigo</li>
+            <li>Extracto de malta (proviene de cebada)</li>
+            <li>Almidón sin especificar origen</li>
+          </ul>
+        </div>
+
+        <div class="req-card req-alert">
+          <h3 style="margin-bottom:10px;">⚠ Cuando la etiqueta dice "puede contener trazas"</h3>
+          <p style="font-size:.88rem; color:var(--gray-700);">
+            Para personas con celiaquía confirmada, incluso las trazas pueden desencadenar
+            una respuesta autoinmune. BioLácteos garantiza la <strong>ausencia total de trazas</strong>
+            mediante protocolos de limpieza, segregación de líneas de producción y certificación
+            de materias primas en cada lote.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOSTENIBILIDAD ===== -->
+<section class="section section-alt" id="sostenibilidad">
+  <div class="container">
+    <div class="center fade-in">
+      <span class="tag tag-green">Bioeconomía Circular</span>
+      <h2>Sostenibilidad y Valorización del Lactosuero</h2>
+      <p class="lead mt-4">
+        La sostenibilidad es el motor de rentabilidad de BioLácteos. El lactosuero —tradicional
+        pasivo ambiental— se transforma en nuestras manos en activos nutricionales de alto valor.
+      </p>
+    </div>
+
+    <div class="sustain-flow fade-in">
+      <div class="flow-step">
+        <div class="icon">🐄</div>
+        <h4>Leche Fresca</h4>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="icon">🧀</div>
+        <h4>Producción de Queso</h4>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" style="border: 2px solid var(--green-mid);">
+        <div class="icon">💧</div>
+        <h4>Lactosuero Capturado</h4>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="icon">⚗️</div>
+        <h4>Biorrefinería</h4>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" style="background: var(--green-pale); border: 2px solid var(--green-mid);">
+        <div class="icon">🏆</div>
+        <h4>Productos de Valor</h4>
+      </div>
+    </div>
+
+    <div class="wpc-cards fade-in">
+      <div class="wpc-card">
+        <div class="num">55%</div>
+        <p>de los nutrientes de la leche se recuperan del lactosuero y reintegran a la cadena de valor</p>
+      </div>
+      <div class="wpc-card">
+        <div class="num">100×</div>
+        <p>mayor carga orgánica del lactosuero frente a aguas residuales domésticas — riesgo que eliminamos</p>
+      </div>
+      <div class="wpc-card">
+        <div class="num">WPC/WPI</div>
+        <p>Concentrados proteicos de suero de alta biodisponibilidad obtenidos por filtración avanzada</p>
+      </div>
+    </div>
+
+    <div class="grid-3 mt-12 fade-in">
+      <div class="info-card safe-card">
+        <div class="info-icon">🏭</div>
+        <h3>Biorrefinería Láctea</h3>
+        <p style="font-size:.88rem;color:var(--gray-600);margin-top:8px;">
+          Transformación del suero en sustratos para biomasa microbiana y bioproductos, evitando la
+          contaminación de fuentes hídricas regionales del Huila.
+        </p>
+      </div>
+      <div class="info-card safe-card">
+        <div class="info-icon">🔬</div>
+        <h3>Concentrados WPC / WPI</h3>
+        <p style="font-size:.88rem;color:var(--gray-600);margin-top:8px;">
+          Recuperación de proteínas de alto valor biológico mediante procesos de filtración avanzada
+          para uso en la línea funcional de bebidas y fermentados.
+        </p>
+      </div>
+      <div class="info-card safe-card">
+        <div class="info-icon">🌊</div>
+        <h3>Reducción DBO/DQO</h3>
+        <p style="font-size:.88rem;color:var(--gray-600);margin-top:8px;">
+          Mitigación drástica de la Demanda Biológica de Oxígeno en los ecosistemas del Huila,
+          transformando un residuo contaminante en un insumo estratégico.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<section class="section" id="contacto">
+  <div class="container">
+    <div class="center fade-in">
+      <span class="tag tag-green">Contáctanos</span>
+      <h2>Asesoría Técnica Nutricional</h2>
+      <p class="lead mt-4">
+        Nuestro equipo de expertos en nutrición y biotecnología alimentaria está disponible para
+        orientarte en la selección de productos adecuados para tu condición.
+      </p>
+    </div>
+
+    <div class="contact-grid mt-12 fade-in">
+      <div class="contact-form">
+        <h3 style="margin-bottom:20px;">Envíanos un mensaje</h3>
+        <form onsubmit="return submitForm(event)">
+          <div class="grid-2" style="gap:16px;">
+            <div class="form-group">
+              <label>Nombre completo</label>
+              <input type="text" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label>Correo electrónico</label>
+              <input type="email" placeholder="tu@correo.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Condición</label>
+            <select>
+              <option value="">Selecciona tu condición</option>
+              <option>Celiaquía (intolerancia al gluten)</option>
+              <option>Intolerancia a la lactosa</option>
+              <option>Ambas condiciones</option>
+              <option>Consumidor general de productos saludables</option>
+              <option>Establecimiento gastronómico</option>
+              <option>Distribuidor / Punto de venta</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>¿En qué podemos ayudarte?</label>
+            <textarea placeholder="Cuéntanos sobre tus necesidades, dudas sobre etiquetado, pedidos especiales, alianzas comerciales..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-green" style="width:100%; justify-content:center;">
+            Enviar consulta
+          </button>
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <a href="https://wa.me/573000000000?text=Hola%20BioLácteos%2C%20quisiera%20asesoría%20sobre%20productos%20Sin%20Gluten" class="whatsapp-btn" target="_blank">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Asesoría inmediata por WhatsApp
+        </a>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <h4>Ubicación</h4>
+            <p>Departamento del Huila, Colombia<br>Región Andina — Eje Agroindustrial</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">🏅</div>
+          <div>
+            <h4>Certificaciones</h4>
+            <p>Registro INVIMA vigente · BPM Certificadas<br>Espiga Barrada · Sin TACC</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">🤝</div>
+          <div>
+            <h4>Alianzas Comerciales</h4>
+            <p>Distribuidores, restaurantes y tiendas de salud naturista interesados en productos Sin Gluten del Huila.</p>
+          </div>
+        </div>
+
+        <div style="background:var(--green-pale);border-radius:var(--radius);padding:20px;border-left:4px solid var(--green-mid);">
+          <p style="font-size:.87rem;color:var(--gray-700);">
+            <strong style="color:var(--green-dark);">🔒 Privacidad garantizada.</strong>
+            Tu información es confidencial y solo se usa para brindarte la mejor asesoría nutricional
+            personalizada. Nunca compartimos tus datos con terceros.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">🌿</div>
+          <div>
+            <div class="logo-text">BioLácteos Sin Gluten</div>
+            <div class="logo-sub" style="color:rgba(255,255,255,.5);">del Huila</div>
+          </div>
+        </div>
+        <p>
+          Innovación agroindustrial con propósito. Transformando la industria láctea del Huila
+          para ofrecer productos certificados Sin Gluten que cuidan tu salud y el planeta.
+        </p>
+        <div style="display:flex;gap:10px;margin-top:16px;">
+          <div style="width:36px;height:36px;background:rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;">📘</div>
+          <div style="width:36px;height:36px;background:rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;">📸</div>
+          <div style="width:36px;height:36px;background:#25d366;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;">💬</div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="#productos">Queso Campesino Especializado</a></li>
+          <li><a href="#productos">Bebida de Cacahuete y Coco</a></li>
+          <li><a href="#productos">Fermentado Probiótico de Almendra</a></li>
+          <li><a href="#productos">Ver catálogo completo</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="#etiquetado">Etiquetado Sin Gluten</a></li>
+          <li><a href="#diferencia">Celiaquía vs Lactosa</a></li>
+          <li><a href="#aditivos">Guía de Aditivos</a></li>
+          <li><a href="#normativa">Normativa INVIMA</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#nosotros">Quiénes somos</a></li>
+          <li><a href="#sostenibilidad">Sostenibilidad</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#contacto">Alianzas comerciales</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2025 BioLácteos Sin Gluten del Huila. Todos los derechos reservados.</div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <span>🌿 Producción Sostenible</span>
+        <span>🏅 Certificado INVIMA</span>
+        <span>🌾 Espiga Barrada</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll animation observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Form submission feedback
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = '✅ ¡Mensaje enviado! Te contactamos pronto.';
+    btn.style.background = '#166534';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Enviar consulta';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 4000);
+    return false;
+  }
+
+  // Mobile menu toggle
+  const mobileBtn = document.querySelector('.nav-mobile-btn');
+  const navLinks = document.querySelector('.nav-links');
+  mobileBtn.addEventListener('click', () => {
+    if (navLinks.style.display === 'flex') {
+      navLinks.style.display = 'none';
+    } else {
+      navLinks.style.cssText = `
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 16px 24px;
+        box-shadow: 0 8px 24px rgba(0,0,0,.12);
+        z-index: 99;
+        gap: 12px;
+      `;
+    }
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.style.display = '';
+    });
+  });
+</script>
+</body>
+</html>
